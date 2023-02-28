@@ -17,7 +17,7 @@ const Product = ({ product }: ProductProps) => {
         <div className={styles.product_card}>
           <img
             src={urlFor(product.image && product.image[0])}
-            alt=""
+            alt="Laço"
             width={250}
             height={250}
             className={styles.product_image}

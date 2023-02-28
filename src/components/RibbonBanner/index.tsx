@@ -7,7 +7,6 @@ import { BannerProps } from '../../@types/sanity';
 import styles from './RibbonBanner.module.css';
 
 const RibbonBanner = ({ banner }: BannerProps) => {
-  console.log('banner', banner);
   return (
     <div className={styles.ribbon_banner_container}>
       <div>

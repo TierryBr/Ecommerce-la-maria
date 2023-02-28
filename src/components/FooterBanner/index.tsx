@@ -25,7 +25,7 @@ const FooterBanner = ({ footerBanner }: FooterProps) => {
 
         <img
           src={urlFor(footerBanner.image)}
-          alt=""
+          alt="Laço"
           className={styles.footer_banner_image}
         />
       </div>
