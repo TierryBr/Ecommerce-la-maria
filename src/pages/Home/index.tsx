@@ -1,8 +1,9 @@
 import React from 'react';
+import { ProductProps } from '../../@types/sanity';
 
 import styles from './Home.module.css';
 
-const Home = () => {
+const Home = ({ products }: ProductProps) => {
   return (
     <>
       <div className={styles.products_heading}>
@@ -10,7 +11,7 @@ const Home = () => {
         <p>Laços de muitas variações</p>
       </div>
       <div className={styles.products_container}>
-        {['Laço 1', 'Laço 2', 'Laço 3'].map((product) => product)}
+        {products?.map((product) => product.name)}
       </div>
     </>
   );
