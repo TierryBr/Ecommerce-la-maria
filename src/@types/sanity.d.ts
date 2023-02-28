@@ -1,7 +1,8 @@
 export interface Product {
+  _id: string;
   name: string;
   price: number;
-  image: [];
+  image: [{}];
   details: string;
   slug: {
     _type: string;
