@@ -95,14 +95,7 @@ span.text-red {
   text-align: center;
   font-weight: 600;
 }
-.products-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-  width: 100%;
-}
+
 .product-card {
   cursor: pointer;
   transform: scale(1, 1);
@@ -192,19 +185,6 @@ span.text-red {
   font-size: 16px;
   /* color: black; */
   align-self: flex-end;
-}
-.products-heading {
-  text-align: center;
-  margin: 40px 0px;
-  color: #324d67;
-}
-.products-heading h2 {
-  font-size: 40px;
-  font-weight: 800;
-}
-.products-heading p {
-  font-size: 16px;
-  font-weight: 200;
 }
 .footer-banner-container {
   padding: 100px 40px;
