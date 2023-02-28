@@ -11,7 +11,7 @@ const Index = ({ products, bannerData }: ServerSide) => {
     <>
       <RibbonBanner banner={bannerData.length && bannerData[0]} />
       <Home products={products} />
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   );
 };

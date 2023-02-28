@@ -32,6 +32,10 @@ export interface BannerProps {
   banner: Array<Banner[], number>
 }
 
+export interface FooterProps {
+  footerBanner: Array<Banner[], number>
+}
+
 export interface ServerSide {
   products: Array<Product>;
   bannerData: Array<Banner>;
