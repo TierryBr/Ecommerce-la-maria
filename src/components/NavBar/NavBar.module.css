@@ -16,6 +16,7 @@
   transition: transform 0.4s ease;
   border: none;
   background-color: transparent;
+  margin-left: 30px;
 }
 .cart_icon:hover {
   transform: scale(1.1, 1.1);
@@ -33,11 +34,8 @@
   font-weight: 600;
 }
 
-.button_container_login {
+.button_container {
   display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
   flex-direction: row;
 }
 
@@ -47,4 +45,8 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+}
+
+.nameLogin:hover {
+  color: #cc2c32;
 }

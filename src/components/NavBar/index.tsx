@@ -11,20 +11,24 @@ const NavBar = () => {
         <Link href="/">La Maria Laços</Link>
       </p>
 
-      <button type="button" className={styles.cart_icon}>
-        <Link href="/cart">
-          <AiOutlineShopping />
-          <span className={styles.cart_item_qty}>1</span>
-        </Link>
-      </button>
-      <button type="button" className={styles.cart_icon}>
-        <Link href="/signin">
-          <div className={styles.button_container_login}>
-            <AiOutlineUser />
-            <p className={styles.nameLogin}>Logar</p>
-          </div>
-        </Link>
-      </button>
+      <div>
+        <button type="button" className={styles.cart_icon}>
+          <Link href="/cart">
+            <div className={styles.button_container}>
+              <AiOutlineShopping />
+              <span className={styles.cart_item_qty}>1</span>
+            </div>
+          </Link>
+        </button>
+        <button type="button" className={styles.cart_icon}>
+          <Link href="/signin">
+            <div className={styles.button_container}>
+              <AiOutlineUser />
+              <p className={styles.nameLogin}>Logar</p>
+            </div>
+          </Link>
+        </button>
+      </div>
     </div>
   );
 };

@@ -13,11 +13,11 @@ const RibbonBanner = ({ banner }: BannerProps) => {
         <p className={styles.ribbon_solo}>{banner.smallText}</p>
         <h3>{banner.midText}</h3>
         <h1>{banner.largeText1}</h1>
-        <img
+        {/* <img
           src={urlFor(banner.image)}
           alt="Laço"
           className={styles.ribbon_banner_image}
-        />
+        /> */}
 
         <div>
           <Link href={`/product/${banner.product}`}>

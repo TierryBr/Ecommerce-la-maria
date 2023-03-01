@@ -10,7 +10,7 @@ const Footer = () => {
       <p>La Maria 2023 | Todos os direitos reservados</p>
       <p className={styles.icons}>
         <Link href="https://instagram.com/lamariaoficiall?igshid=MDM4ZDc5MmU=">
-          <AiFillInstagram />
+          <AiFillInstagram size={25} />
         </Link>
       </p>
     </div>

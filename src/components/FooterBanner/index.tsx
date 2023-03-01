@@ -23,11 +23,11 @@ const FooterBanner = ({ footerBanner }: FooterProps) => {
           </Link>
         </div>
 
-        <img
+        {/* <img
           src={urlFor(footerBanner.image)}
           alt="Laço"
           className={styles.footer_banner_image}
-        />
+        /> */}
       </div>
     </div>
   );
