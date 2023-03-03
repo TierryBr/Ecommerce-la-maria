@@ -6,7 +6,7 @@ const Signin = () => {
   return (
     <div>
       <Head>
-        <title>Login</title>
+        <title>Entrar</title>
       </Head>
 
       <form className="mx-auto my-4" style={{ maxWidth: '500px' }}>
