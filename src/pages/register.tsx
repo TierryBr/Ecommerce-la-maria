@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/router';
 import validation from '@/utils/validation';
 import { postData } from '@/utils/fetchData';
+import { DataContext } from '@/store/GlobalState';
 
 export interface userDataProps {
-  name: string;
+  name?: string;
   email: string;
   password: string;
-  cf_password: string;
+  cf_password?: string;
 }
 
 const Register = () => {
   const initialState = { name: '', email: '', password: '', cf_password: '' };
   const [userData, setUserData] = useState(initialState);
   const { name, email, password, cf_password } = userData;
+
+  const { state, dispatch } = useContext(DataContext);
+  const { auth } = state;
+
+  const router = useRouter();
 
   const handleChangeInput = (e: any) => {
     const { name, value } = e.target;
@@ -27,20 +34,33 @@ const Register = () => {
     const errorMsg = validation({ name, email, password, cf_password });
     if (errorMsg) return toast.error(errorMsg);
 
-    const response = await postData('auth/register', userData);
-
-    if (response.error) return toast.error(response.error);
-
-    return toast.success(response.msg, { duration: 5000 });
+    return await toast.promise(
+      postData('auth/register', userData),
+      {
+        loading: 'Carregando...',
+        success: (response) => {
+          router.push('/signin');
+          return `${response.msg}`;
+        },
+        error: (response) => `${response.error}`,
+      },
+      {
+        success: {
+          duration: 5000,
+        },
+      }
+    );
   };
+
+  useEffect(() => {
+    if (Object.keys(auth).length !== 0) router.push('/');
+  }, [auth]);
 
   return (
     <div>
       <Head>
         <title>Cadastro</title>
       </Head>
-
-      <Toaster />
 
       <form
         className="mx-auto my-4"

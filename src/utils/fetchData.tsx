@@ -1,7 +1,7 @@
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 import { userDataProps } from '@/pages/register';
 
-export const getData = async (url: string, token: string) => {
+export const getData = async (url: string, token?: string) => {
   const res = await fetch(`${baseUrl}/api/${url}`, {
     method: 'GET',
     headers: {

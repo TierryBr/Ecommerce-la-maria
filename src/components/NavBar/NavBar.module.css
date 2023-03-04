@@ -4,10 +4,6 @@
   margin: 6px 18px;
   position: relative;
 }
-.logo {
-  color: gray;
-  font-size: 18px;
-}
 .cart_icon {
   font-size: 30px;
   color: gray;
@@ -49,4 +45,15 @@
 
 .nameLogin:hover {
   color: #cc2c32;
+}
+
+.avatar_logo {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transition: transform 0.4s ease;
+  border: none;
+  margin-left: 20px;
+  margin-top: 3px;
 }

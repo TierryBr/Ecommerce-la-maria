@@ -20,6 +20,10 @@ a:hover {
   color: #cc2c32;
 }
 
+img {
+  object-fit: cover;
+}
+
 .marquee-text {
   font-size: 29px;
   font-weight: 600;

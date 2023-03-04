@@ -9,7 +9,7 @@ const Layout = ({ children }: any) => {
   return (
     <div className={styles.layout}>
       <Head>
-        <title>La-Maria</title>
+        <title>La Maria Laços</title>
       </Head>
       <header>
         <NavBar />
