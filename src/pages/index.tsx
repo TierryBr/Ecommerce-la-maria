@@ -2,29 +2,31 @@ import React from 'react';
 import { FooterBanner, RibbonBanner } from '../components';
 import Home from './Home';
 
+import { getData } from '@/utils/fetchData';
 import { client } from '../lib/client';
 
 import { ServerSide } from '../@types/sanity';
 
-const Index = ({ products, bannerData }: ServerSide) => {
+const Index = ({ products, banners }: ServerSide) => {
   return (
     <>
-      <RibbonBanner banner={bannerData.length && bannerData[0]} />
+      <RibbonBanner banner={banners} />
       <Home products={products} />
-      <FooterBanner footerBanner={bannerData && bannerData[0]} />
+      <FooterBanner footerBanner={banners} />
     </>
   );
 };
 
 export const getServerSideProps = async () => {
-  const query = '*[_type == "product"]';
-  const products = await client.fetch(query);
-
-  const bannerQuery = '*[_type == "banner"]';
-  const bannerData = await client.fetch(bannerQuery);
+  const resProducts = await getData('product');
+  const resBanner = await getData('banner');
 
   return {
-    props: { products, bannerData },
+    props: {
+      products: resProducts.products,
+      result: resProducts.result,
+      banners: resBanner.banner[0],
+    },
   };
 };
 

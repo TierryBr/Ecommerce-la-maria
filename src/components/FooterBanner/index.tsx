@@ -11,23 +11,17 @@ const FooterBanner = ({ footerBanner }: FooterProps) => {
     <div className={styles.footer_banner_container}>
       <div className={styles.banner_desc}>
         <div className={styles.left}>
-          <p>{footerBanner.largeText1}</p>
-          <h3>{footerBanner.smallText}</h3>
-          <p>{footerBanner.saleTIme}</p>
+          <p>{footerBanner.title}</p>
+          <h3>{footerBanner.midText}</h3>
+          <p>{footerBanner.time}</p>
         </div>
         <div className={styles.right}>
-          <h3>{footerBanner.midText}</h3>
-          <p>{footerBanner.desc}</p>
+          <h3>{footerBanner.discount}% de desconto</h3>
+          <p>{footerBanner.description}</p>
           <Link href={`/product/${footerBanner.product}`}>
-            <button type="button">{footerBanner.buttonText}</button>
+            <button type="button">{footerBanner.textButton}</button>
           </Link>
         </div>
-
-        {/* <img
-          src={urlFor(footerBanner.image)}
-          alt="Laço"
-          className={styles.footer_banner_image}
-        /> */}
       </div>
     </div>
   );

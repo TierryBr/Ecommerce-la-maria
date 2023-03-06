@@ -1,27 +1,23 @@
 export interface Product {
   _id: string;
-  name: string;
+  title: string;
   price: number;
-  image: [{}];
-  details: string;
-  slug: {
-    _type: string;
-    current: string;
-  }
+  images: [{}];
+  description: string;
+  content: string;
+  sold: number;
+  inStock: number;
+  checked: boolean;
 }
 
 export interface Banner {
-  buttonText: string;
-  desc: string;
+  title: string;
   discount: string;
-  details: string;
-  image: {};
-  largeText1: string;
-  largeText2: string;
+  description: string;
   midText: string;
-  product: string;
-  saleTIme: string;
-  smallText: string;
+  discount: number;
+  textButton: string;
+  time: string;
 }
 
 export interface ProductProps {
@@ -38,5 +34,5 @@ export interface FooterProps {
 
 export interface ServerSide {
   products: Array<Product>;
-  bannerData: Array<Banner>;
+  banners: Array<Banner>;
 }

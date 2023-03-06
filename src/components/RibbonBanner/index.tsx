@@ -10,22 +10,17 @@ const RibbonBanner = ({ banner }: BannerProps) => {
   return (
     <div className={styles.ribbon_banner_container}>
       <div>
-        <p className={styles.ribbon_solo}>{banner.smallText}</p>
+        <p className={styles.ribbon_solo}>{banner.title}</p>
         <h3>{banner.midText}</h3>
-        <h1>{banner.largeText1}</h1>
-        {/* <img
-          src={urlFor(banner.image)}
-          alt="Laço"
-          className={styles.ribbon_banner_image}
-        /> */}
+        <h1>{banner.discount}% de desconto</h1>
 
         <div>
           <Link href={`/product/${banner.product}`}>
-            <button type="button">{banner.buttonText}</button>
+            <button type="button">{banner.textButton}</button>
           </Link>
           <div className={styles.desc}>
             <h5>Descrição</h5>
-            <p>{banner.desc}</p>
+            <p>{banner.description}</p>
           </div>
         </div>
       </div>
