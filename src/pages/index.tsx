@@ -3,7 +3,6 @@ import { FooterBanner, RibbonBanner } from '../components';
 import Home from './Home';
 
 import { getData } from '@/utils/fetchData';
-import { client } from '../lib/client';
 
 import { ServerSide } from '../@types/sanity';
 

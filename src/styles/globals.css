@@ -223,6 +223,15 @@ span.text-red {
   color: #324d67;
 }
 
+.product-detail-items {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  margin: 10px 0;
+  margin-bottom: 20px;
+  color: #324d67;
+}
+
 .product-detail-image {
   border-radius: 15px;
   background-color: #ebebeb;
@@ -246,10 +255,13 @@ span.text-red {
   width: 70px;
   height: 70px;
   cursor: pointer;
+  padding: 3px;
 }
 
-.selected-image {
+.small-image.active {
   background-color: #f02d34;
+  padding: 3px;
+  transform: scale(1.1, 1.1);
 }
 .reviews {
   color: #f02d34;
