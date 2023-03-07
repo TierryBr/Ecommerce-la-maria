@@ -6,7 +6,7 @@ import { getData } from '@/utils/fetchData';
 import { Product, ProductProps } from '@/@types/sanity';
 import { Product as ProductList } from '../../components';
 import { DataContext } from '@/store/GlobalState';
-import { addToCart } from '@/store/Actions';
+import { addToCart, increase, decrease } from '@/store/Actions';
 
 interface Props {
   product: Product;
@@ -31,6 +31,7 @@ const ProductDetails = ({ product, products }: Props) => {
       payload: data,
     });
   };
+
   return (
     <div>
       <Head>
@@ -62,18 +63,18 @@ const ProductDetails = ({ product, products }: Props) => {
           <h4>Detalhes: </h4>
           <p>{product.description}</p>
           <p className="price">R$ {product.price}</p>
-          <div className="quantity">
+          {/* <div className="quantity">
             <h3>Quantidade: </h3>
             <p className="quantity-desc">
-              <span className="minus" onClick={() => {}}>
+              <span className="minus" onClick={() => handleDecreaseCart()}>
                 <AiOutlineMinus />
               </span>
               <span className="num">0</span>
-              <span className="plus" onClick={() => {}}>
+              <span className="plus" onClick={() => handleIncreaseCart()}>
                 <AiOutlinePlus />
               </span>
             </p>
-          </div>
+          </div> */}
           <div className="product-detail-items">
             {product.inStock > 0 ? (
               <h6>Restantes: {product.inStock}</h6>
