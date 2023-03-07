@@ -9,7 +9,7 @@ import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const { state, dispatch } = useContext(DataContext);
-  const { auth } = state;
+  const { auth, cart } = state;
 
   const handleLogout = () => {
     Cookie.remove('refreshToken', { path: 'api/auth/accessToken' });
@@ -86,14 +86,10 @@ const NavBar = () => {
               <button type="button" className={styles.cart_icon}>
                 <div className={styles.button_container}>
                   <AiOutlineShopping />
-                  <span className={styles.cart_item_qty}>1</span>
+                  <span className={styles.cart_item_qty}>{cart?.length}</span>
                 </div>
               </button>
-              <Link
-                href="/signin"
-                className="nav-link"
-                style={{ marginLeft: 5 }}
-              >
+              <Link href="/cart" className="nav-link" style={{ marginLeft: 5 }}>
                 Carrinho
               </Link>
             </li>

@@ -1,12 +1,14 @@
-import { createContext, useReducer, useEffect } from 'react';
+import { createContext, useReducer, useEffect, useRef } from 'react';
 import reducers from './Reducers';
 import { getData } from '@/utils/fetchData';
 
 export const DataContext = createContext({});
 
 export const DataProvider = ({ children }: any) => {
-  const initialState = { auth: {} };
+  const initialState = { auth: {}, cart: [] };
   const [state, dispatch] = useReducer(reducers, initialState);
+  const { cart } = state;
+  const dataFetchedRef = useRef(false);
 
   useEffect(() => {
     const firstLogin = localStorage.getItem('firstLogin');
@@ -24,6 +26,24 @@ export const DataProvider = ({ children }: any) => {
       });
     }
   }, []);
+
+  const getCartHistory = async () => {
+    const persistCart = await localStorage.getItem('next_cart01');
+    const next_cart01 = JSON.parse(persistCart);
+    if (next_cart01) {
+      dispatch({ type: 'ADD_CART', payload: next_cart01 });
+    }
+  };
+
+  useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+    getCartHistory();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('next_cart01', JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <DataContext.Provider value={{ state, dispatch }}>

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Head from 'next/head';
+import toast from 'react-hot-toast';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { getData } from '@/utils/fetchData';
 import { Product, ProductProps } from '@/@types/sanity';
 import { Product as ProductList } from '../../components';
+import { DataContext } from '@/store/GlobalState';
+import { addToCart } from '@/store/Actions';
 
 interface Props {
   product: Product;
@@ -12,12 +15,22 @@ interface Props {
 
 const ProductDetails = ({ product, products }: Props) => {
   const [index, setIndex] = useState(0);
+  const { state, dispatch } = useContext(DataContext);
+  const { cart } = state;
 
   const isActive = (indexPhoto: number) => {
     if (index === indexPhoto) return 'active';
     return '';
   };
 
+  const handleAddToCart = async () => {
+    const data = await addToCart(product, cart);
+
+    dispatch({
+      type: 'ADD_CART',
+      payload: data,
+    });
+  };
   return (
     <div>
       <Head>
@@ -72,7 +85,12 @@ const ProductDetails = ({ product, products }: Props) => {
           <h4>Conteúdo: </h4>
           <p>{product.content}</p>
           <div className="buttons">
-            <button type="button" className="add-to-cart">
+            <button
+              type="button"
+              className="add-to-cart"
+              disabled={product.inStock === 0 ? true : false}
+              onClick={() => handleAddToCart()}
+            >
               Carrinho
             </button>
             <button type="button" className="buy-now">
