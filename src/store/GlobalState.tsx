@@ -5,7 +5,7 @@ import { getData } from '@/utils/fetchData';
 export const DataContext = createContext({});
 
 export const DataProvider = ({ children }: any) => {
-  const initialState = { auth: {}, cart: [] };
+  const initialState = { auth: {}, cart: [], modal: {} };
   const [state, dispatch] = useReducer(reducers, initialState);
   const { cart } = state;
   const dataFetchedRef = useRef(false);

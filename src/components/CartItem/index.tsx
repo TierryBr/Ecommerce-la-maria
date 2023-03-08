@@ -63,7 +63,18 @@ const CartItem = ({ key, item, dispatch, cart }) => {
               </button>
             </p>
           </div>
-          <button type="button" className="remove-item">
+          <button
+            type="button"
+            className="remove-item"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            onClick={() =>
+              dispatch({
+                type: 'ADD_MODAL',
+                payload: { data: cart, id: item._id, title: item.title },
+              })
+            }
+          >
             <IoMdTrash />
           </button>
         </div>

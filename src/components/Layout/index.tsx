@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
+import Modal from '../Modal';
 
 import styles from './Layout.module.css';
 
@@ -14,6 +15,7 @@ const Layout = ({ children }: any) => {
       <header>
         <NavBar />
       </header>
+      <Modal />
       <main className={styles.main_container}>{children}</main>
       <footer>
         <Footer />

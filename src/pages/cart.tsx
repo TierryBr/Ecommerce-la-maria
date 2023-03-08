@@ -56,7 +56,7 @@ const Cart = () => {
       <div className="img_cart">
         <h2 style={{ marginTop: 50 }}>Carrinho vazio</h2>
         <Link href="/">
-          <button type="button" className="btn">
+          <button type="button" className="btn2">
             Continue comprando
           </button>
         </Link>
